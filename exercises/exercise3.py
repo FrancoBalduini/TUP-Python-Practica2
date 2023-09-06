@@ -15,11 +15,13 @@ def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]
         - No utilizar AND ni OR.
     """
     if multiplicar:
-        return a * b 
-    elif b != 0:
-        return a/b
+        result = a * b
     else:
-        return "Operación no válida"
+        if b != 0:
+            result = a / b
+        else:
+            result = "Operación no válida"
+    return result
 
 
 
@@ -48,11 +50,12 @@ def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, st
         - No utilizar AND ni OR.
     """
     if multiplicar:
-        return a * b
-    if b != 0:
-        return a/b
+        result = a * b
+        return result
+    if not multiplicar and b != 0:
+        result = a / b
+        return result
     return "Operación no válida"
-
 
 # NO MODIFICAR - INICIO
 assert operacion_multiple(1, 1, True) == 1
